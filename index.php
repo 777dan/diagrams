@@ -10,15 +10,15 @@
 </head>
 
 <body>
-    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+    <form action="image.php" method="POST">
         <label>Поставить оценку </label><input type="text" name="setMarks"><br>
         <input type="submit" name="submitMark" value="Подтвердить оценку">
         <input type="submit" name="submit" value="Показать диаграмму">
         <link rel="stylesheet" href="style.css">
     </form>
     <?php
-    if (isset($_POST['submit'])) {
-        echo "<img src='img.php'>";
+    if (isset($_GET['picture'])) {
+        echo "<img src = '{$_GET['picture']}'>";
     }
     if (isset($_POST['submitMark'])) {
         $mark = $_POST['setMarks'];
