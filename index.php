@@ -20,22 +20,6 @@
     if (isset($_GET['picture'])) {
         echo "<img src = '{$_GET['picture']}'>";
     }
-    if (isset($_POST['submitMark'])) {
-        $mark = $_POST['setMarks'];
-        $filename = "marks.json";
-        $fileOpen = fopen($filename, "r+");
-        $fileContent = fread($fileOpen, filesize($filename));
-        $fileContent = json_decode($fileContent);
-        array_push($fileContent, $mark);
-        $fileContent = json_encode($fileContent);
-        fclose($fileOpen);
-        $fileOpen = fopen($filename, "w");
-        fwrite($fileOpen, "[]");
-        fclose($fileOpen);
-        $fileOpen = fopen($filename, "r+");
-        fwrite($fileOpen, $fileContent);
-        fclose($fileOpen);
-    }
     ?>
 </body>
 
